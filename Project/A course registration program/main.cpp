@@ -1,4 +1,3 @@
-// 2019E7100 안세준
 #include <iostream>
 #include <string>
 #include <iomanip>
