@@ -1,0 +1,25 @@
+원래 main.cpp의 부분
+    // DB 설정
+    struct DB_Connection {
+        const char* server = "localhost",
+            * user = "root",
+            * pw = "dkstpwns1!",
+            * db = "cpp_project";
+        unsigned int port = 3307;  // 포트 변경 (PC.B에서 사용한 DB 포트)
+    } DBCon;
+
+수정된 main_data.cpp의 부분
+    // DB 설정
+    struct DB_Connection {
+        const char* server = "외부 IP", // 보안상 문제로 비공개
+            * user = "sejoon",
+            * pw = "dkstpwns1!",
+            * db = "cpp_project";
+        unsigned int port = 33060;  // 포트 변경 (PC.A에서 포트포워딩)
+                                    // 33060	[VMware Ubuntu 에서 확인한 IP]	3306	BOTH	MY_SQL
+                                    // 외부 IP를 33060 포트로 접근하면 [VMware Ubuntu 에서 확인한 IP]에 3306포트로 접근 할 수 있다는 뜻.
+    } DBCon;
+  로 변경해주었다.
+
+PC.A에 있는 Ubuntu를 실행하지 않고 코드를 실행했을 시 발생하는 결과
+ > DB에 연결되지 않았습니다. 오류 메시지: Can't connect to server on '외부 IP' (10060)
